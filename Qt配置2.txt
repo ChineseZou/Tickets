@@ -1,0 +1,171 @@
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")  # 设置窗体对象名称
+        MainWindow.resize(960, 786)  # 设置窗体大小
+        MainWindow.setMinimumSize(QtCore.QSize(960, 786))  # 主窗体最小值
+        MainWindow.setMaximumSize(QtCore.QSize(960, 786))  # 主窗体最大值
+        self.centralwidget = QtWidgets.QWidget(MainWindow)  # 主窗体的widget控件
+        self.centralwidget.setObjectName("centralwidget")  # 设置对象名称
+
+        # 通过label控件显示顶部图片
+        self.label_title_img = QtWidgets.QLabel(self.centralwidget)
+        self.label_title_img.setGeometry(QtCore.QRect(0, 0, 960, 132))
+        self.label_title_img.setObjectName("label_title_img")
+        title_img = QPixmap('2.jpg')  # 打开顶部位图
+        self.label_title_img.setPixmap(title_img)  # 设置调色板
+
+        # 查询部分的widget
+        self.widget_query = QtWidgets.QWidget(self.centralwidget)
+        self.widget_query.setGeometry(QtCore.QRect(0, 141, 960, 85))
+        self.widget_query.setObjectName("widget_query")
+        # 开启自动填充背景
+        self.widget_query.setAutoFillBackground(True)
+        palette = QPalette()  # 调色板类
+        palette.setBrush(QPalette.Background, QtGui.QBrush(QtGui.QPixmap('img/bg2.png')))  # 设置背景图片
+        self.widget_query.setPalette(palette)  # 为控件设置对应的调色板即可
+
+        # 出发地与对应的编辑框控件
+        self.label = QtWidgets.QLabel(self.widget_query)
+        self.label.setGeometry(QtCore.QRect(30, 30, 54, 12))
+        self.label.setObjectName("label")
+        self.textEdit = QtWidgets.QTextEdit(self.widget_query)
+        self.textEdit.setGeometry(QtCore.QRect(80, 20, 104, 31))
+        font = QtGui.QFont()  # 创建QFont()对象
+        font.setPointSize(11)  # 设置编辑框字体大小的值
+        self.textEdit.setFont(font)  # 设置编辑框字体
+        self.textEdit.setObjectName("textEdit")  # 出发地对应编辑框对象名称
+
+        # 目的地与对应的编辑框
+        self.label_2 = QtWidgets.QLabel(self.widget_query)
+        self.label_2.setGeometry(QtCore.QRect(220, 30, 54, 12))
+        self.label_2.setObjectName("label_2")
+        self.textEdit_2 = QtWidgets.QTextEdit(self.widget_query)
+        self.textEdit_2.setGeometry(QtCore.QRect(270, 20, 104, 31))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.textEdit_2.setFont(font)
+        self.textEdit_2.setObjectName("textEdit_2")
+
+        # 出发日与有对应的编辑框
+        self.label_3 = QtWidgets.QLabel(self.widget_query)
+        self.label_3.setGeometry(QtCore.QRect(410, 30, 54, 12))
+        self.label_3.setObjectName("label_3")
+        self.textEdit_3 = QtWidgets.QTextEdit(self.widget_query)
+        self.textEdit_3.setGeometry(QtCore.QRect(460, 20, 104, 31))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.textEdit_3.setFont(font)
+        self.textEdit_3.setObjectName("textEdit_3")
+
+        # 查询按钮
+        self.pushButton = QtWidgets.QPushButton(self.widget_query)
+        self.pushButton.setGeometry(QtCore.QRect(610, 20, 91, 31))
+        self.pushButton.setObjectName("pushButton")
+
+        # 选择车次类型的widget
+        self.widget_checkBox = QtWidgets.QWidget(self.centralwidget)
+        self.widget_checkBox.setGeometry(QtCore.QRect(0, 220, 961, 35))
+        self.widget_checkBox.setAutoFillBackground(False)
+        self.widget_checkBox.setObjectName("widget_checkBox")
+        # 开启自动填充背景
+        self.widget_checkBox.setAutoFillBackground(True)
+        palette = QPalette()  # 调色板类
+        palette.setBrush(QPalette.Background, QtGui.QBrush(QtGui.QPixmap('img/bg3.png')))  # 设置背景图片
+        self.widget_checkBox.setPalette(palette)  # 设置调色板控件对应的方法即可
+
+        # 显示车次类型文字
+        self.label_type = QtWidgets.QLabel(self.widget_checkBox)
+        self.label_type.setGeometry(QtCore.QRect(30, 9, 65, 16))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.label_type.setFont(font)
+        self.label_type.setObjectName("label_type")
+
+        # 选择高铁
+        self.checkBox_G = QtWidgets.QCheckBox(self.widget_checkBox)
+        self.checkBox_G.setGeometry(QtCore.QRect(100, 9, 70, 17))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.checkBox_G.setFont(font)
+        self.checkBox_G.setObjectName("checkBox_GC")
+
+        # 选择动车
+        self.checkBox_D = QtWidgets.QCheckBox(self.widget_checkBox)
+        self.checkBox_D.setGeometry(QtCore.QRect(258, 9, 63, 17))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.checkBox_D.setFont(font)
+        self.checkBox_D.setObjectName("checkBox_D")
+        # 选择直达
+        self.checkBox_Z = QtWidgets.QCheckBox(self.widget_checkBox)
+        self.checkBox_Z.setGeometry(QtCore.QRect(415, 9, 63, 17))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.checkBox_Z.setFont(font)
+        self.checkBox_Z.setObjectName("checkBox_Z")
+        # 选择特快
+        self.checkBox_T = QtWidgets.QCheckBox(self.widget_checkBox)
+        self.checkBox_T.setGeometry(QtCore.QRect(572, 9, 63, 17))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.checkBox_T.setFont(font)
+        self.checkBox_T.setObjectName("checkBox_T")
+        # 选择快速
+        self.checkBox_K = QtWidgets.QCheckBox(self.widget_checkBox)
+        self.checkBox_K.setGeometry(QtCore.QRect(730, 9, 63, 17))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.checkBox_K.setFont(font)
+        self.checkBox_K.setObjectName("checkBox_K")
+
+        # 通过label控件显示火车信息图片
+        self.label_train_img = QtWidgets.QLabel(self.centralwidget)
+        self.label_train_img.setGeometry(QtCore.QRect(0, 256, 960, 62))
+        self.label_train_img.setObjectName("label_train_img")
+        train_img = QPixmap('img/bg4.png')  # 打开火车信息位图
+        self.label_train_img.setPixmap(train_img)  # 设置调色板
+        # 显示车次信息的列表
+        self.tableView = QtWidgets.QTableView(self.centralwidget)
+        self.tableView.setGeometry(QtCore.QRect(0, 320, 960, 440))
+        self.tableView.setObjectName("tableView")
+        self.model = QStandardItemModel();  # 创建存储数据的模式
+        # 根据空间自动改变列宽度并且不可修改列宽度
+        self.tableView.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        # 设置表头不可见
+        self.tableView.horizontalHeader().setVisible(False)
+        # 纵向表头不可见
+        self.tableView.verticalHeader().setVisible(False)
+        # 设置表格内容文字大小
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.tableView.setFont(font)
+        # 设置表格内容不可编辑
+        self.tableView.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        # 垂直滚动条始终开启
+        self.tableView.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
+        # 主窗体设置主Widget
+        MainWindow.setCentralWidget(self.centralwidget)
+
+        self.retranslateUi(MainWindow)  # 调用retranslateUi方法显示窗体文字
+        #QtCore.QMetaObject.connectSlotsByName(MainWindow)  # 关联信号槽
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "查询余票"))
+        self.checkBox_T.setText(_translate("MainWindow", "T-特快"))
+        self.checkBox_K.setText(_translate("MainWindow", "K-快速"))
+        self.checkBox_Z.setText(_translate("MainWindow", "Z-直达"))
+        self.checkBox_D.setText(_translate("MainWindow", "D-动车"))
+        self.checkBox_G.setText(_translate("MainWindow", "GC-高铁"))
+        self.label_type.setText(_translate("MainWindow", "车次类型："))
+        self.label.setText(_translate("MainWindow", "出发地："))
+        self.label_2.setText(_translate("MainWindow", "目的地："))
+        self.label_3.setText(_translate("MainWindow", "出发日："))
+        self.pushButton.setText(_translate("MainWindow", "查询"))
+
+        self.textEdit_3.setText(get_time())  # 出发日显示当天日期
+        self.pushButton.clicked.connect(self.on_click)  # 查询按钮指定单击事件的方法
+        self.checkBox_G.stateChanged.connect(self.change_G)  # 高铁选中与取消事件
+        self.checkBox_D.stateChanged.connect(self.change_D)  # 动车选中与取消事件
+        self.checkBox_Z.stateChanged.connect(self.change_Z)  # 直达车选中与取消事件
+        self.checkBox_T.stateChanged.connect(self.change_T)  # 特快车选中与取消事件
+        self.checkBox_K.stateChanged.connect(self.change_K)  # 快车选中与取消事件
